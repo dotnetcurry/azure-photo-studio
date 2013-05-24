@@ -1,0 +1,29 @@
+@model AzurePhotoManager.Models.Photo
+
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<fieldset>
+    <legend>Photo</legend>
+
+    <div class="display-label">Name</div>
+    <div class="display-field">@Model.Name</div>
+
+    <div class="display-label">Url</div>
+    <div class="display-field">@Model.Url</div>
+
+    <div class="display-label">Notes</div>
+    <div class="display-field">@Model.Notes</div>
+
+    <div class="display-label">UserId</div>
+    <div class="display-field">@Model.UserId</div>
+</fieldset>
+<p>
+    @Html.ActionLink("Edit", "Edit", new { id=Model.Id }) |
+    @Html.ActionLink("Back to List", "Index")
+</p>
+
+

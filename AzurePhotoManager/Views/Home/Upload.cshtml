@@ -1,0 +1,30 @@
+﻿@{
+    ViewBag.Title = "Upload";
+}
+
+<div class="content-wrapper">
+    <h2>Upload files to your Library</h2>
+    <div class="content-wrapper">
+        <input id="selectImages" type="file" multiple="multiple" value="Select Files" />
+        <input id="uploadImages" type="button" value="Upload" />
+    </div>
+
+    <div data-bind="foreach: uploaderCollection" style="width: 100%; height: 100%">
+        <div data-bind="with: $data" style="border: 1px solid gray; float: left; width: 400px; height: 300px; text-align: center; margin-right: auto; margin-left: auto;">
+            <div style="width: 300px; height: 200px; margin-right: auto; margin-left: auto;">
+                <img data-bind="attr: { src: uploadedUrl }" alt="Uploading" style="width: 100%; height: 100%" />
+            </div>
+            <div class="progressBar" style="width: 300px; height: 10px; background-color: grey; margin-right: auto; margin-left: auto;"
+                data-bind="attr: { id: 'progressBar' + fileIndex }">
+            </div>
+            <label style="font-size: x-small" data-bind="attr: { id: 'statusMessage' + fileIndex }"></label>
+            <input type="text" data-bind="value: name" />
+            <input type="button" data-bind="click: save" value="Save" />
+            <a data-bind="attr: { src: uploadedUrl }, text: uploadedUrl"></a>
+        </div>
+    </div>
+</div>
+@section Scripts{
+    <script src="~/Scripts/knockout-2.2.0.debug.js"></script>
+    <script src="~/Scripts/apm-uploader.js"></script>
+}
